@@ -231,6 +231,24 @@ function draw () {
                 
             }
 
+             //excepcion maximo tamaño
+             try {
+                for(let i=0; i<arreglo.length; i++){
+                    todes = arreglo[i];
+                    NoMasTam(todes.tam); 
+                }
+            } catch (nomastam) {
+                fill(180,140,230);
+                noStroke();
+                rect(280, 285, 170, 30);
+                fill(355);
+                textSize(20);
+                text(nomastam.message, 290, 307);
+                //aumentarMas = false;
+                //console.log(nomenos);
+                
+            }
+
             break;
         }
         //console.log("num",numero);
@@ -309,14 +327,11 @@ function mousePressed () {
                 arregloDos = arreglo.map(elemento => {
                     return elemento = new Circulo(random(0,555),random(360,555),20);
                 })
-                
-                yaHayCirculo = true;
             }
+                 yaHayCirculo = true;
                 //console.log(arregloDos);
-
             }
             break;
-            
         }
         //console.log("a",agregar);
         //console.log("b",agregarMas);
@@ -325,6 +340,12 @@ function mousePressed () {
 function QueNoSeaCero(a){
     if((a == 0)&&(clic == true)){
         throw new MyExceptions ("ERROR: Escoja un numero diferente a cero");
+    }
+}
+
+function QueNoSeaDiez(x){
+    if(a == 10){
+        throw new MyExceptions ("MAX");
     }
 }
 
@@ -343,4 +364,12 @@ function NoMenos(c){
         eliminarMas = true;
     }
 }
+
+function NoMasTam(d){
+    if(d > 70){
+        throw new MyExceptions ("Tamaño máximo");
+    }
+}
+
+
 

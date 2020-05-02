@@ -16,7 +16,8 @@ class Figura{
     }
 
     cambioTam(){
-        if(this.tam < 80)
+        if(this.tam < 80){
         this.tam *= 2;
+        }
     }
 }
